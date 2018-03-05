@@ -1,0 +1,19 @@
+.barMenu{
+    background: #003748;
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+    .menuOption{
+        color: white;
+        text-decoration: none;
+        height: 30px;
+        padding: 5px;
+        font-size: 16px;
+        line-height: 30px;
+        cursor: pointer;
+        &:hover{
+            background: #214f5d;
+            box-shadow: 0px 10px 18px #000000;
+        }
+    }
+}
