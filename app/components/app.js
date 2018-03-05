@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import AppStore from '../flux/store';
 import Tablero from '../components/tablero/main';
 import Settings from '../components/settings/main';
+import Notifications from '../components/notifications/main';
 import Header from '../components/header/main';
 import Footer from '../components/footer/main';
 import actions from '../flux/actions';
@@ -53,7 +54,7 @@ class App extends React.Component {
                             <Route path='/historial' component={Tablero} />
                             <Route path='/rango' component={Tablero} />
                             <Route path='/ajustes' component={Settings} />
-                            <Route path='/notificaciones' component={Tablero} />
+                            <Route path='/notificaciones' component={Notifications} />
                             <Route path='/miCuenta' component={Tablero} />
                             <Route render={function (){
                                 return <p> Not Found </p>

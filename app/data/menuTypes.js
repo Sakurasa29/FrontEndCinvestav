@@ -1,40 +1,40 @@
 {
     "menuTypes": {
         "administrador": [{
-            "ico": "",
+            "ico": "icon-laptop",
             "text": "Tablero",
             "path": "/tablero"
         },{
-            "ico": "",
+            "ico": "icon-stats-bars",
             "text": "Histórico de eventos",
             "path": "/historial"
         },{
-            "ico": "",
+            "ico": "icon-range",
             "text": "Rango de parámetros",
             "path": "/rango"
         },{
-            "ico": "",
+            "ico": "icon-wrench",
             "text": "Ajustes",
             "path": "/ajustes"
         },{
-            "ico": "",
+            "ico": "icon-notification",
             "text": "Notificaciones",
             "path": "/notificaciones"
         },{
-            "ico": "",
+            "ico": "icon-my-account-user",
             "text": "Mi Cuenta",
             "path": "/miCuenta"
         }],
         "usuario": [{
-            "ico": "",
+            "ico": "icon-laptop",
             "text": "Tablero",
             "path": "/tablero"
         },{
-            "ico": "",
+            "ico": "icon-stats-bars",
             "text": "Histórico de eventos",
             "path": "/historial"
         },{
-            "ico": "",
+            "ico": "icon-my-account-user",
             "text": "Mi Cuenta",
             "path": "/miCuenta"
         }]

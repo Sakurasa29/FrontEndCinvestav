@@ -4,8 +4,10 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <span>icono</span>
-                <span>Cinvestav</span>
+                <div className= "back-ico">
+                    <span className="ico icon-cinvestav"></span>
+                </div>
+                <span className="cinves">Cinvestav</span>
             </div>
         );
     }

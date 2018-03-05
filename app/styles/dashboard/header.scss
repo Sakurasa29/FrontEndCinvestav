@@ -1,7 +1,29 @@
 .header{
     width: 100%;
-    background: #009683;
-    height: 30px;
-    font-size: 14px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
+    box-shadow: 0px 10px 18px #000000;
+    .cinves{ 
+        color: white;
+        background: #009683;
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 90%;
+        padding-left: 10px;
+    }
+    .back-ico{
+        color: white;
+        font-size: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 4%;
+
+        .ico{
+            font-size: 30px;
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 10px;
+        }
+    }
 }

@@ -1,3 +1,6 @@
+@import '/icons.scss';
+@import '/variables.scss';
+
 @import 'dashboard/header.scss';
 @import 'dashboard/footer.scss';
 @import 'dashboard/menu.scss';
@@ -6,6 +9,13 @@
 
 @import 'settings/settings.scss';
 
+//fuentes
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+#app {
+    font-family: 'Roboto','helvetica';
+}
 .views{
     width: 70%;
     display: inline-block;
