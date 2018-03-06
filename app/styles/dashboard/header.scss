@@ -9,22 +9,23 @@
         font-size: 18px;
         display: inline-block;
         vertical-align: middle;
-        width: 94%;
-        padding-left: 17px;
-        padding-top: 1px;
+        width: 95%;
+        .spanCinves{
+            padding-left: 10px;
+        }
     }
     .back-ico{
         color: white;
         font-size: 40px;
         display: inline-block;
         vertical-align: middle;
-        width: 4%;
+        width: 5%;
+        text-align: center;
 
         .ico{
             font-size: 30px;
             display: inline-block;
             vertical-align: middle;
-            padding-left: 10px;
         }
     }
 }

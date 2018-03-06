@@ -35,10 +35,10 @@ class App extends React.Component {
     }
     renderMenu(){
         return this.state.store.menuOptions.map((opt, index) => (
-            <Link key={index} to={opt.path}>
+            <Link className="linkStyle" key={index} to={opt.path}>
               <div className='menuOption' key={index}>
                   <span className={"ico "+opt.ico}></span>
-                  <span>{opt.text}</span>
+                  <span className="txtMenu"> {opt.text}</span>
               </div>
             </Link>
         ));
