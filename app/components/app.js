@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import AppStore from '../flux/store';
 import Tablero from '../components/tablero/main';
 import Settings from '../components/settings/main';
+import Notifications from '../components/notifications/main';
+import Account from '../components/account/main';
+import Historic from '../components/historic/main';
+import ParameterRange from '../components/range/main';
 import Header from '../components/header/main';
 import Footer from '../components/footer/main';
 import actions from '../flux/actions';
@@ -31,10 +35,10 @@ class App extends React.Component {
     }
     renderMenu(){
         return this.state.store.menuOptions.map((opt, index) => (
-            <Link key={index} to={opt.path}>
+            <Link className="linkStyle" key={index} to={opt.path}>
               <div className='menuOption' key={index}>
                   <span className={"ico "+opt.ico}></span>
-                  <span>{opt.text}</span>
+                  <span className="txtMenu"> {opt.text}</span>
               </div>
             </Link>
         ));
@@ -50,11 +54,11 @@ class App extends React.Component {
                     <div className="views">
                         <Switch>
                             <Route path='/tablero' component={Tablero} />
-                            <Route path='/historial' component={Tablero} />
-                            <Route path='/rango' component={Tablero} />
+                            <Route path='/historial' component={Historic} />
+                            <Route path='/rango' component={ParameterRange} />
                             <Route path='/ajustes' component={Settings} />
-                            <Route path='/notificaciones' component={Tablero} />
-                            <Route path='/miCuenta' component={Tablero} />
+                            <Route path='/notificaciones' component={Notifications} />
+                            <Route path='/miCuenta' component={Account} />
                             <Route render={function (){
                                 return <p> Not Found </p>
                             }} />
