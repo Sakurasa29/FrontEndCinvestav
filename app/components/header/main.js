@@ -10,7 +10,7 @@ class Header extends React.Component {
                 <div className="cinves">
                     <span className="spanCinves">Cinvestav</span>
                 </div>
-                </div>
+             </div>
         );
     }
 }

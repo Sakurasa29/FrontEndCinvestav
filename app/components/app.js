@@ -8,8 +8,11 @@ import Account from '../components/account/main';
 import Historic from '../components/historic/main';
 import ParameterRange from '../components/range/main';
 import Header from '../components/header/main';
+import TimeHeader from '../components/timeheader/main';
 import Footer from '../components/footer/main';
 import actions from '../flux/actions';
+import SubHeader from '../components/general/subheader';
+
 
 
 function getAppState() {
@@ -49,6 +52,7 @@ class App extends React.Component {
                 <div id="generalDiv">
                     <Header />
                     <div className="barMenu">
+                        <TimeHeader />
                         {this.state.store.menuOptions != null ? this.renderMenu() : null}
                     </div>
                     <div className="views">
