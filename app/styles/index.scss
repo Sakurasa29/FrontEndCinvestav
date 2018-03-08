@@ -8,6 +8,8 @@
 @import 'dashboard/general.scss';
 
 @import 'tablero/tablero.scss';
+@import 'account/account.scss';
+@import 'account/userbox.scss';
 
 @import 'settings/settings.scss';
 //fuentes
@@ -37,10 +39,9 @@
     width: 100%;
     height: 100%;
     background: #d6d6d6;
-    z-index: 1;
 }
-.views{
-    width: 85%;
+.views{ 
+    width: 75%;
     display: inline-block;
     vertical-align: middle;
 }

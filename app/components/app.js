@@ -47,6 +47,7 @@ class App extends React.Component {
         ));
     }
     render() {
+        console.log(this.state)
         return (
             <Router>
                 <div id="generalDiv">
@@ -62,7 +63,7 @@ class App extends React.Component {
                             <Route path='/rango' component={ParameterRange} />
                             <Route path='/ajustes' component={Settings} />
                             <Route path='/notificaciones' component={Notifications} />
-                            <Route path='/miCuenta' component={Account} />
+                            <Route path='/miCuenta' render={(props) => <Account {...this.state.store.userInfo} actions={actions}/>} />
                             <Route render={function (){
                                 return <p> Not Found </p>
                             }} />

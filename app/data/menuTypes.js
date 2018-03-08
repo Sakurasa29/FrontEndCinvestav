@@ -1,6 +1,6 @@
 {
     "menuTypes": {
-        "administrador": [{
+        "Administrador": [{
             "ico": "icon-laptop",
             "text": "Tablero",
             "path": "/tablero"
