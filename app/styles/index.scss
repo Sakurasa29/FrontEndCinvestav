@@ -4,20 +4,44 @@
 @import 'dashboard/header.scss';
 @import 'dashboard/footer.scss';
 @import 'dashboard/menu.scss';
+@import 'dashboard/timeheader.scss';
+@import 'dashboard/general.scss';
 
 @import 'tablero/tablero.scss';
+@import 'account/account.scss';
+@import 'account/userbox.scss';
 
 @import 'settings/settings.scss';
-
 //fuentes
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0;
+	outline: none;
+	padding: 0;
+	text-decoration: none;
+}
+
+#generalDiv{
+    min-height: 600px;
+    max-height: 1500px;
+    height: auto;
+}
 #app {
     font-family: 'Roboto','helvetica';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #d6d6d6;
 }
-.views{
-    width: 70%;
+.views{ 
+    width: 75%;
     display: inline-block;
     vertical-align: middle;
 }

@@ -1,9 +1,12 @@
 import React from 'react';
+import SubHeader from '../general/subheader';
 
 class Historic extends React.Component {
     render() {
         return (
-            <div className="historic">Yo soy el historics
+            <div id="historic">
+            <SubHeader titulo="Histórico de eventos"/>
+            yo soy el historico
             </div>
         );
     }
