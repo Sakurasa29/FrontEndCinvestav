@@ -8,11 +8,8 @@ import Account from '../components/account/main';
 import Historic from '../components/historic/main';
 import ParameterRange from '../components/range/main';
 import Header from '../components/header/main';
-import TimeHeader from '../components/timeheader/main';
 import Footer from '../components/footer/main';
 import actions from '../flux/actions';
-import SubHeader from '../components/general/subheader';
-
 
 
 function getAppState() {
@@ -38,22 +35,20 @@ class App extends React.Component {
     }
     renderMenu(){
         return this.state.store.menuOptions.map((opt, index) => (
-            <Link className="linkStyle" key={index} to={opt.path}>
+            <Link key={index} to={opt.path}>
               <div className='menuOption' key={index}>
                   <span className={"ico "+opt.ico}></span>
-                  <span className="txtMenu"> {opt.text}</span>
+                  <span>{opt.text}</span>
               </div>
             </Link>
         ));
     }
     render() {
-        console.log(this.state)
         return (
             <Router>
                 <div id="generalDiv">
                     <Header />
                     <div className="barMenu">
-                        <TimeHeader />
                         {this.state.store.menuOptions != null ? this.renderMenu() : null}
                     </div>
                     <div className="views">
@@ -63,7 +58,7 @@ class App extends React.Component {
                             <Route path='/rango' component={ParameterRange} />
                             <Route path='/ajustes' component={Settings} />
                             <Route path='/notificaciones' component={Notifications} />
-                            <Route path='/miCuenta' render={(props) => <Account {...this.state.store.userInfo} actions={actions}/>} />
+                            <Route path='/miCuenta' component={Account} />
                             <Route render={function (){
                                 return <p> Not Found </p>
                             }} />

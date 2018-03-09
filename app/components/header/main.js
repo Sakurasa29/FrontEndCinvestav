@@ -7,10 +7,8 @@ class Header extends React.Component {
                 <div className= "back-ico">
                     <span className="ico icon-cinvestav"></span>
                 </div>
-                <div className="cinves">
-                    <span className="spanCinves">Cinvestav</span>
-                </div>
-             </div>
+                <span className="cinves">Cinvestav</span>
+            </div>
         );
     }
 }
