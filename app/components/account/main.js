@@ -15,7 +15,7 @@ class Account extends React.Component {
                 </div>
                 <div className="buttonAdd">
                     <span className="ico icon-add-user-button"/>
-                    <span className="add">Agregar Usuario</span>
+                    <span className="add">Agregar User</span>
                 </div>
             </div>
         );
