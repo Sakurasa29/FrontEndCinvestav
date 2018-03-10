@@ -4,7 +4,9 @@ class SubHeader extends React.Component {
     render() {
         return (
             <div className="subheader">
-                <span>{this.props.titulo} </span>
+                <div className="line"></div> 
+                <span className="titleDiv">{this.props.titulo} </span>
+                <div className="line"></div> 
             </div>
         );
     }

@@ -11,6 +11,11 @@ const Actions = {
         dispatcher.dispatch({
             type: actionTypes.GET_MENUTYPES
         });
+    },
+    getSensorTypes() {
+        dispatcher.dispatch({
+            type: actionTypes.GET_SENSORTYPES
+        });
     } 
 };
 export default Actions;

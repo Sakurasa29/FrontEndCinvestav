@@ -1,12 +1,19 @@
 import React from 'react';
 import SubHeader from '../general/subheader';
+import SensorTypes from '../tablero/sensorTypes';
 
 class Tablero extends React.Component {
     render() {
+        console.log(this.props)
         return (
             <div id="tablero">    
             <SubHeader titulo="Tablero"/>
-            Yo soy el tablero
+                <div className="topContainer">
+                    <SensorTypes {...this.props}/>
+                </div>
+                <div className="bottomContainer">
+                
+                </div>
             </div>
         );
     }

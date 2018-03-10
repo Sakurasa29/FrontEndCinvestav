@@ -8,6 +8,7 @@
 @import 'dashboard/general.scss';
 
 @import 'tablero/tablero.scss';
+@import 'tablero/sensorTypes.scss';
 @import 'account/account.scss';
 @import 'account/userbox.scss';
 
@@ -41,7 +42,7 @@
     background: #d6d6d6;
 }
 .views{ 
-    width: 75%;
+    width: 80%;
     display: inline-block;
     vertical-align: middle;
 }
