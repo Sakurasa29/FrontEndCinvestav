@@ -47,7 +47,7 @@ class App extends React.Component {
         ));
     }
     render() {
-        console.log(this.state)
+        console.log("state",this.state)
         return (
             <Router>
                 <div id="generalDiv">
@@ -58,7 +58,7 @@ class App extends React.Component {
                     </div>
                     <div className="views">
                         <Switch>
-                            <Route path='/tablero' component={Tablero} />
+                            <Route path='/tablero' render={(props) => <Tablero {...this.state} actions={actions}/>} />
                             <Route path='/historial' component={Historic} />
                             <Route path='/rango' component={ParameterRange} />
                             <Route path='/ajustes' component={Settings} />

@@ -2,8 +2,9 @@ import React from 'react';
 
 class TimeHeader extends React.Component {
     getTime(){
-        var f=new Date()
-        return f.getHours().toString()+":"+f.getMinutes().toString()+":"+f.getSeconds().toString();
+        var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        var f=new Date();
+       return f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
     }
     render() {
         return (

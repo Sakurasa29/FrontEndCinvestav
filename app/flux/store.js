@@ -9,7 +9,8 @@ const CHANGE_EVENT = 'change';
 let AppData = {
     data:{
         userInfo: null,
-        menuOptions: null
+        menuOptions: null,
+        sensorTypes: null
     },
     getUserInfo(){
         $.getJSON('/app/data/login.js', function(info) {
@@ -20,6 +21,15 @@ let AppData = {
             }).fail(function(error) {
                 console.error(error);
             });
+        }).fail(function(error) {
+            console.error(error);
+        });
+    },
+    getSensorTypes(){
+        $.getJSON('/app/data/sensorTypes.js', function(info){
+            AppData.data.sensorTypes = info.sensorTypes;
+            console.log(info)
+            AppStore.emitChange();
         }).fail(function(error) {
             console.error(error);
         });
@@ -51,6 +61,9 @@ dispatcher.register((action) => {
         break;
     case actionTypes.GET_MENUTYPES:
         AppData.getMenuTypes();
+        break;
+    case actionTypes.GET_SENSORTYPES:
+        AppData.getSensorTypes();
         break;
     default:
 		// no op
