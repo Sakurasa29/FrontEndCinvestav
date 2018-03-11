@@ -31,11 +31,12 @@
                 "meassure": "2500",
                 "unit": ""
             },{
-                "ico": "icon-consumption",
+                "ico": "icon-consumtion2",
                 "type": "Consumo",
                 "color": "#ff8351",
                 "meassure": "2500",
                 "unit": "kWh"
-            }]
+            }],
+            "relationTransf":"5:200"
         }
 }
