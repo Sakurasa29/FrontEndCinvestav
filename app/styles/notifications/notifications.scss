@@ -1,0 +1,78 @@
+.contentTable{
+    table{
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
+        border-collapse: collapse;
+        background: #f3f3f3;
+        height: 50px;
+        th{
+            background: #fafbfb;
+            color: #214f5d;
+        }
+        
+        tbody{
+            tr{
+                height: 40px;
+                .checkbox{
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 50%;
+                    .ico{
+                        color: #2196f3;
+                        font-size: 20px;
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+                    .text{
+                        margin-right: 10px;
+                    }
+                }
+                &:nth-child(even) {
+                    background: #e8eaf6;
+                }
+            }
+            .nombreWrap{
+                .iconContact{
+                    width: 25%;
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 24px;
+                    text-align: center;
+                    .ico{
+                        color: #616161;
+                    }
+                }
+                .nameWrap{
+                    width: 75%;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                width: 30%;
+            }
+            .emailWrap{
+                width: 25%
+            }
+            .notificationWrap{
+                text-align: center;
+                width: 30%;
+            }
+            .iconWrap{
+                width: 5%;
+                .icoEdit{
+                    color: #279e8c;
+                    font-size: 27px;
+                    width: 50%;
+                    padding: 2px;
+                    cursor: pointer;
+                }
+                .icoDelete{
+                    color: #e61610;
+                    font-size: 20px;
+                    padding: 2px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
