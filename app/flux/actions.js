@@ -64,7 +64,12 @@ const Actions = {
             type: actionTypes.SAVE_CHANGESEDITMYACCOUNT,
             name,
             email
+        });    
+    },  
+    getParametersRange() {
+        dispatcher.dispatch({
+            type: actionTypes.GET_PARAMETERSRANGE
         });
-    }    
+    }  
 };
 export default Actions;

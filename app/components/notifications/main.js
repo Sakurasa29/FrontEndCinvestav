@@ -70,6 +70,7 @@ class Notifications extends React.Component {
             <div className="notifications">
                 <SubHeader titulo="Notificaciones"/>
                 <div className="contentTable">
+                    <div id="titlePrincipal">Lista de notificaciones a usuarios</div>
                     {this.props.store.notification != null ? this.renderNotifications() : null}
                 </div>
                 

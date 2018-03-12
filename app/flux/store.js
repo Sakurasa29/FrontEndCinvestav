@@ -23,7 +23,8 @@ let AppData = {
             active: false,
             name: "",
             email: ""
-        }
+        },
+        parameters: null
     },
     getUserInfo(){
         $.getJSON('/app/data/login.js', function(info) {
@@ -77,6 +78,15 @@ let AppData = {
                 AppData.data.editUser.active=false;
                 AppStore.emitChange();
             }
+        });
+    },
+    getParametersRange(){
+        $.getJSON('/app/data/parametersRange.js', function(info){
+            AppData.data.parameters = info.parameterRange;
+            console.log(info)
+            AppStore.emitChange();  
+        }).fail(function(error) {
+            console.error(error);
         });
     },
 /***********************************************************************************/    
@@ -153,6 +163,9 @@ dispatcher.register((action) => {
         break; 
     case actionTypes.SAVE_CHANGESEDITMYACCOUNT:
         AppData.saveChangesEditMyAccount(action);
+        break; 
+    case actionTypes.GET_PARAMETERSRANGE:
+        AppData.getParametersRange(action);
         break; 
     default:
 
