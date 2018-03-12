@@ -7,27 +7,32 @@ class Notifications extends React.Component {
         super(props);
         this.changeValue = this.changeValue.bind(this);
         this.activatePopUp =this.activatePopUp.bind(this);
+        this.deactivatePopUp =this.deactivatePopUp.bind(this);
     }
     componentDidMount() {
-      this.props.actions.getNotifications();
-    }
+        this.props.actions.getNotifications();
+      }
     changeValue(value, name){
         this.props.actions.changeValueNotificacion(name, value);
     }
     activatePopUp(id, name, email){
         this.props.actions.editNotificationData(true,id,name,email);
     }
+    deactivatePopUp(){
+        this.setState({email: '', name: ''});
+        this.props.actions.editNotificationData(false,"","","");
+    }
     renderNotifications(){
             var notificationsJs = this.props.store.notification;
             return (
-                    <table>
+                    <table> 
                         <tbody>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Notificaciones</th>
-                            <th></th>
-                        </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Notificaciones</th>
+                                <th></th>
+                            </tr>
                         {
                             notificationsJs.map((item, index) => (
                                 <tr>
@@ -65,9 +70,20 @@ class Notifications extends React.Component {
             <div className="notifications">
                 <SubHeader titulo="Notificaciones"/>
                 <div className="contentTable">
+                    <div id="titlePrincipal">Lista de notificaciones a usuarios</div>
                     {this.props.store.notification != null ? this.renderNotifications() : null}
                 </div>
-                <EditUser {...this.props}/>
+                
+                <div className="buttonCont">
+                    <div className="button1"> 
+                        <span className="ico icon-add-user-button"></span>
+                        <span>Añadir</span>
+                    </div>
+                    <div className="button2"> 
+                        <span>Guardar</span>
+                    </div>
+                </div>
+                <EditUser {...this.props} data={this.props.store.editUser} from="notifications" deactivatePopUp={() => this.deactivatePopUp}/>
             </div>
         );
     }

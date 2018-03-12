@@ -45,6 +45,26 @@ const Actions = {
             name,
             email
         });
+    },
+    getMyAccount(){
+        dispatcher.dispatch({
+            type: actionTypes.GET_MYACCOUNT
+        });
+    },
+    editMyAccountData(value, name, email) {
+        dispatcher.dispatch({
+            type: actionTypes.EDIT_MYACCOUNTDATA,
+            value,
+            name,
+            email
+        });
+    },
+    saveChangesEditMyAccount(name, email){
+        dispatcher.dispatch({
+            type: actionTypes.SAVE_CHANGESEDITMYACCOUNT,
+            name,
+            email
+        });    
     },  
     getParametersRange() {
         dispatcher.dispatch({

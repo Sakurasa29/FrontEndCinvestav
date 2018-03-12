@@ -18,6 +18,12 @@ let AppData = {
             name: "",
             email: ""
         },
+        myAccount: null,
+        editAccount:{
+            active: false,
+            name: "",
+            email: ""
+        },
         parameters: null
     },
     getUserInfo(){
@@ -36,7 +42,6 @@ let AppData = {
     getSensorTypes(){
         $.getJSON('/app/data/sensorTypes.js', function(info){
             AppData.data.sensorTypes = info.sensorTypes;
-            console.log(info)
             AppStore.emitChange();
         }).fail(function(error) {
             console.error(error);
@@ -44,8 +49,7 @@ let AppData = {
     },
     getNotifications(){
         $.getJSON('/app/data/notificationUsers.js', function(info){
-            AppData.data.notification = info.NotificationUser;
-            console.log(info)
+            AppData.data.notification = info.NotificationUser; // comes from json 
             AppStore.emitChange();  
         }).fail(function(error) {
             console.error(error);
@@ -67,7 +71,6 @@ let AppData = {
         AppStore.emitChange();        
     },
     saveChangesEditUser(action){
-        console.log(action.id, action.name, action.email)
         AppData.data.notification.map((item,index)=>{
             if(action.id === item.id){
                 AppData.data.notification[index].name=action.name;
@@ -86,7 +89,29 @@ let AppData = {
             console.error(error);
         });
     },
+/***********************************************************************************/    
+    getMyAccount(){
+        $.getJSON('/app/data/login.js', function(info){
+            AppData.data.myAccount = info.infoLogin; // comes from json 
+            AppStore.emitChange();  
+        }).fail(function(error) {
+            console.error(error);
+        });
+    },
+    editMyAccountData(action){
+        AppData.data.editAccount.active = action.value;
+        AppData.data.editAccount.name=action.name;
+        AppData.data.editAccount.email=action.email;
+        AppStore.emitChange();        
+    },
+    saveChangesEditMyAccount(action){
+        AppData.data.editAccount.active=false;
+        AppData.data.myAccount.name=action.name;
+        AppData.data.myAccount.email=action.email;
+        AppStore.emitChange();
+    }
 }
+/*************************************************** */
 
 let AppStore = assign({}, EventEmitter.prototype, {
     emitChange: function() {
@@ -99,6 +124,7 @@ let AppStore = assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback);
     }
 });
+/*************************************************** */
 
 AppStore = assign({}, AppStore, {
     getData: () => {
@@ -128,6 +154,15 @@ dispatcher.register((action) => {
         break;
     case actionTypes.SAVE_CHANGESEDITUSER:
         AppData.saveChangesEditUser(action);
+        break;
+    case actionTypes.GET_MYACCOUNT:
+        AppData.getMyAccount(action);
+        break; 
+    case actionTypes.EDIT_MYACCOUNTDATA:
+        AppData.editMyAccountData(action);
+        break; 
+    case actionTypes.SAVE_CHANGESEDITMYACCOUNT:
+        AppData.saveChangesEditMyAccount(action);
         break; 
     case actionTypes.GET_PARAMETERSRANGE:
         AppData.getParametersRange(action);

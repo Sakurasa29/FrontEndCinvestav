@@ -11,11 +11,11 @@ class ParameterRange extends React.Component {
     renderTableofParameters(){
         var parameters = this.props.store.parameters;
             return (
-                <div className="contentTable">
+                <div className="contentTable2">
                     <div id="titlePrincipal">Ajustes el rango de los sensores</div>
-                    <table>
+                    <table className="rangeTable">
                         <tbody>
-                        <tr>
+                        <tr className="tableTitles">
                             <th>Sensor</th>
                             <th>Rango</th>
                             <th>Notificación</th>
@@ -45,7 +45,7 @@ class ParameterRange extends React.Component {
     }
     render() {
         return (
-            <div className="range">            
+            <div className="rangeContainer">            
                 <SubHeader titulo="Rango de parámetros"/>
                 {this.props.store.parameters != null ? this.renderTableofParameters() : null}
                 <div className="buttonChangeR">

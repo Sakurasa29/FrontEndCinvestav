@@ -1,4 +1,4 @@
-.range{
+.rangeContainer{
     .buttonChangeR{
         background: #214f5d;
         border-color: #214f5d;
@@ -14,7 +14,7 @@
         margin-right: 5%;
         cursor: pointer;    
     }
-    .contentTable{
+    .contentTable2{
         #titlePrincipal{
             background: #e0e6e7;
             border-color: #becbce;
@@ -24,8 +24,17 @@
             padding: 5px; 
             font-size: 14px;
         }
-        table{
+        .rangeTable{
+            width: 90%;
+            margin: 0 auto;
+            background: #ffffff;
             tbody{
+                .tableTitles{
+                    color: #214f5d;
+                    box-shadow: 0px 2px 11px -5px black;
+                    height: 30px;
+                    padding-bottom: 10px;
+                }
                 tr{
                     .typeWrap{
                         .textWrap{
