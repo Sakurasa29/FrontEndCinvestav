@@ -69,7 +69,7 @@ class Notifications extends React.Component {
                     {this.props.store.notification != null ? this.renderNotifications() : null}
                 </div>
                 
-                <div className="buttonContainer">
+                <div className="buttonC">
                     <div className="b1Container">
                         <div className="button1"> 
                             <span className="ico icon-add-user-button"></span>

@@ -53,17 +53,16 @@
                 color: #a0a1b1;
             }
         }
-        .buttonC{
-           border: #fafbfb;
+        .saveContainer{
            width: 100%;  
-           margin-left: 30%;
            padding: 20px;
-            .buttonSave{
-                width: 30%;
+               .buttonSave{
+                width: 40%;
                 text-align: center;
                 border-radius: 5px;
                 background: black;
                 padding: 8px;
+                margin-left: 100px;
                 cursor: pointer;
                 &:hover{
                     background: rgba(0, 0, 0, .8);

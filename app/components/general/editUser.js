@@ -56,7 +56,7 @@ class EditUser extends React.Component {
                     <span className="titleInput">Email: </span>
                     <input className="email" defaultValue={this.props.store.editUser.email} onChange={this.handleChange}></input>
                 </div>
-                <div className="buttonC">
+                <div className="saveContainer">
                     <div className="buttonSave">
                         <span className="textButton" onClick={() => this.saveChanges()}>Guardar</span>
                     </div>

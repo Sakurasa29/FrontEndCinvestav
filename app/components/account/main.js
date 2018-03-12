@@ -23,7 +23,7 @@ class Account extends React.Component {
             <SubHeader titulo="Mi Cuenta"/>  
                 <div className="contentAccount"> 
                     <div className="contentUserBox">
-                        <UserBox/>
+                        <UserBox {...this.props}/>
                     </div>
                     <div className="contentButtons">   
                         <div className="buttonSalir">
