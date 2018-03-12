@@ -8,6 +8,7 @@ class EditUser extends React.Component {
             email: ''
         };
         this.saveChanges = this.saveChanges.bind(this);
+        this.saveChangesMyAccount = this.saveChangesMyAccount.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     handleChange(event) {
