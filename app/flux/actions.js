@@ -45,6 +45,11 @@ const Actions = {
             name,
             email
         });
+    },  
+    getParametersRange() {
+        dispatcher.dispatch({
+            type: actionTypes.GET_PARAMETERSRANGE
+        });
     }  
 };
 export default Actions;
