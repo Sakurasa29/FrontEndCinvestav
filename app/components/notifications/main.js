@@ -27,7 +27,6 @@ class Notifications extends React.Component {
             return (
                     <table> 
                         <tbody>
-                        <th colSpan="4">Lista de notificaciones a usuarios</th>
                             <tr>
                                 <th>Nombre</th>
                                 <th>Correo</th>
@@ -74,17 +73,13 @@ class Notifications extends React.Component {
                     {this.props.store.notification != null ? this.renderNotifications() : null}
                 </div>
                 
-                <div className="buttonContainer">
-                    <div className="b1Container">
-                        <div className="button1"> 
-                            <span className="ico icon-add-user-button"></span>
-                            <span>Añadir</span>
-                        </div>
+                <div className="buttonCont">
+                    <div className="button1"> 
+                        <span className="ico icon-add-user-button"></span>
+                        <span>Añadir</span>
                     </div>
-                    <div className="b2Container">
-                        <div className="button2"> 
-                            <span>Guardar</span>
-                        </div>
+                    <div className="button2"> 
+                        <span>Guardar</span>
                     </div>
                 </div>
                 <EditUser {...this.props} data={this.props.store.editUser} from="notifications" deactivatePopUp={() => this.deactivatePopUp}/>
