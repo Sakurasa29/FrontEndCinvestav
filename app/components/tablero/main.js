@@ -4,7 +4,6 @@ import SensorTypes from '../tablero/sensorTypes';
 
 class Tablero extends React.Component {
     render() {
-        console.log(this.props)
         return (
             <div id="tablero">    
             <SubHeader titulo="Tablero"/>

@@ -48,17 +48,18 @@ const Actions = {
     },
     getMyAccount(){
         dispatcher.dispatch({
-            type: actionTypes.GET_USERINFO
+            type: actionTypes.GET_MYACCOUNT
         });
     },
-    editMyAccountData(name, email) {
+    editMyAccountData(value, name, email) {
         dispatcher.dispatch({
             type: actionTypes.EDIT_MYACCOUNTDATA,
+            value,
             name,
             email
         });
     },
-    saveChangesEdituser(name, email){
+    saveChangesEditMyAccount(name, email){
         dispatcher.dispatch({
             type: actionTypes.SAVE_CHANGESEDITMYACCOUNT,
             name,

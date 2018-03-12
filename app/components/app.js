@@ -47,7 +47,6 @@ class App extends React.Component {
         ));
     }
     render() {
-        console.log("state",this.state)
         return (
             <Router>
                 <div id="generalDiv">

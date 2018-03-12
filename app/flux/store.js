@@ -20,6 +20,7 @@ let AppData = {
         },
         myAccount: null,
         editAccount:{
+            active: false,
             name: "",
             email: ""
         }
@@ -40,7 +41,6 @@ let AppData = {
     getSensorTypes(){
         $.getJSON('/app/data/sensorTypes.js', function(info){
             AppData.data.sensorTypes = info.sensorTypes;
-            console.log(info)
             AppStore.emitChange();
         }).fail(function(error) {
             console.error(error);
@@ -49,7 +49,6 @@ let AppData = {
     getNotifications(){
         $.getJSON('/app/data/notificationUsers.js', function(info){
             AppData.data.notification = info.NotificationUser; // comes from json 
-            console.log(info)
             AppStore.emitChange();  
         }).fail(function(error) {
             console.error(error);
@@ -71,7 +70,6 @@ let AppData = {
         AppStore.emitChange();        
     },
     saveChangesEditUser(action){
-        console.log(action.id, action.name, action.email)
         AppData.data.notification.map((item,index)=>{
             if(action.id === item.id){
                 AppData.data.notification[index].name=action.name;
@@ -85,23 +83,23 @@ let AppData = {
     getMyAccount(){
         $.getJSON('/app/data/login.js', function(info){
             AppData.data.myAccount = info.infoLogin; // comes from json 
-            console.log(info)
             AppStore.emitChange();  
         }).fail(function(error) {
             console.error(error);
         });
     },
     editMyAccountData(action){
+        AppData.data.editAccount.active = action.value;
         AppData.data.editAccount.name=action.name;
         AppData.data.editAccount.email=action.email;
         AppStore.emitChange();        
     },
     saveChangesEditMyAccount(action){
-        console.log(action.name, action.email)
-                AppData.data.userInfo.name=action.name;
-                AppData.data.userInfo.email=action.email;
-                AppStore.emitChange();
-            }
+        AppData.data.editAccount.active=false;
+        AppData.data.myAccount.name=action.name;
+        AppData.data.myAccount.email=action.email;
+        AppStore.emitChange();
+    }
 }
 /*************************************************** */
 

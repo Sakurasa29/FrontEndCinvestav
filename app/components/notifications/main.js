@@ -7,6 +7,7 @@ class Notifications extends React.Component {
         super(props);
         this.changeValue = this.changeValue.bind(this);
         this.activatePopUp =this.activatePopUp.bind(this);
+        this.deactivatePopUp =this.deactivatePopUp.bind(this);
     }
     componentDidMount() {
         this.props.actions.getNotifications();
@@ -16,6 +17,10 @@ class Notifications extends React.Component {
     }
     activatePopUp(id, name, email){
         this.props.actions.editNotificationData(true,id,name,email);
+    }
+    deactivatePopUp(){
+        this.setState({email: '', name: ''});
+        this.props.actions.editNotificationData(false,"","","");
     }
     renderNotifications(){
             var notificationsJs = this.props.store.notification;
@@ -82,7 +87,7 @@ class Notifications extends React.Component {
                         </div>
                     </div>
                 </div>
-                <EditUser {...this.props}/>
+                <EditUser {...this.props} data={this.props.store.editUser} from="notifications" deactivatePopUp={() => this.deactivatePopUp}/>
             </div>
         );
     }
