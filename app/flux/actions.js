@@ -45,6 +45,25 @@ const Actions = {
             name,
             email
         });
-    }  
+    },
+    getMyAccount(){
+        dispatcher.dispatch({
+            type: actionTypes.GET_USERINFO
+        });
+    },
+    editMyAccountData(name, email) {
+        dispatcher.dispatch({
+            type: actionTypes.EDIT_MYACCOUNTDATA,
+            name,
+            email
+        });
+    },
+    saveChangesEdituser(name, email){
+        dispatcher.dispatch({
+            type: actionTypes.SAVE_CHANGESEDITMYACCOUNT,
+            name,
+            email
+        });
+    }    
 };
 export default Actions;

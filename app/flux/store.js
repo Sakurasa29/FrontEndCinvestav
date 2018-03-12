@@ -17,6 +17,11 @@ let AppData = {
             active: false,
             name: "",
             email: ""
+        },
+        myAccount: null,
+        editAccount:{
+            name: "",
+            email: ""
         }
     },
     getUserInfo(){
@@ -43,7 +48,7 @@ let AppData = {
     },
     getNotifications(){
         $.getJSON('/app/data/notificationUsers.js', function(info){
-            AppData.data.notification = info.NotificationUser;
+            AppData.data.notification = info.NotificationUser; // comes from json 
             console.log(info)
             AppStore.emitChange();  
         }).fail(function(error) {
@@ -75,8 +80,30 @@ let AppData = {
                 AppStore.emitChange();
             }
         });
-    }
+    },
+/***********************************************************************************/    
+    getMyAccount(){
+        $.getJSON('/app/data/login.js', function(info){
+            AppData.data.myAccount = info.infoLogin; // comes from json 
+            console.log(info)
+            AppStore.emitChange();  
+        }).fail(function(error) {
+            console.error(error);
+        });
+    },
+    editMyAccountData(action){
+        AppData.data.editAccount.name=action.name;
+        AppData.data.editAccount.email=action.email;
+        AppStore.emitChange();        
+    },
+    saveChangesEditMyAccount(action){
+        console.log(action.name, action.email)
+                AppData.data.userInfo.name=action.name;
+                AppData.data.userInfo.email=action.email;
+                AppStore.emitChange();
+            }
 }
+/*************************************************** */
 
 let AppStore = assign({}, EventEmitter.prototype, {
     emitChange: function() {
@@ -89,6 +116,7 @@ let AppStore = assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback);
     }
 });
+/*************************************************** */
 
 AppStore = assign({}, AppStore, {
     getData: () => {
@@ -119,6 +147,15 @@ dispatcher.register((action) => {
     case actionTypes.SAVE_CHANGESEDITUSER:
         AppData.saveChangesEditUser(action);
         break;
+    case actionTypes.GET_MYACCOUNT:
+        AppData.getMyAccount(action);
+        break; 
+    case actionTypes.EDIT_MYACCOUNTDATA:
+        AppData.editMyAccountData(action);
+        break; 
+    case actionTypes.SAVE_CHANGESEDITMYACCOUNT:
+        AppData.saveChangesEditMyAccount(action);
+        break; 
     default:
 
 		// no op

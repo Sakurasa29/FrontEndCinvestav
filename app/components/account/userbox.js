@@ -3,7 +3,7 @@ import React from 'react';
 
 class UserBox extends React.Component {
     render() {
-        console.log(this.props)
+        console.log("lo que llega a userbox",this.props)
         return (
             <div className="userbox">   
                     <div className="header">
@@ -19,7 +19,7 @@ class UserBox extends React.Component {
                     </div>
                     <div className="infouser">
                         <span className="email">{this.props.email}</span>
-                        <span className="ico icon-edit-user"/>
+                        <span onClick={() => this.activatePopUp(name, email)} className="ico icon-edit-user"/>
                     </div>
             </div>
         );

@@ -1,6 +1,6 @@
 var React = require('react');
 
-class EditUser extends React.Component {
+class EditMyAccount extends React.Component {
     constructor(props){
         super(props);
         this.deactivatePopUp =this.deactivatePopUp.bind(this);
@@ -23,16 +23,16 @@ class EditUser extends React.Component {
     }
     deactivatePopUp(){
         this.setState({email: '', name: ''});
-        this.props.actions.editNotificationData(false,"","","");
+        this.props.actions.editMyAccountData(false,"","","");
     }
     saveChanges(){
         if(this.state.name != "" && this.state.email != ""){
-            this.props.actions.saveChangesEditUser(this.props.store.editUser.id, this.state.name, this.state.email);
+            this.props.actions.saveChangesEditMyAccount(this.props.store.editAccount, this.state.name, this.state.email);
             this.setState({email: '', name: ''});
         }
         else{
-            if(this.state.name=="") this.props.actions.saveChangesEditUser(this.props.store.editUser.id, this.props.store.editUser.name, this.state.email);
-            if(this.state.email=="") this.props.actions.saveChangesEditUser(this.props.store.editUser.id, this.state.name, this.props.store.editUser.email);
+            if(this.state.name=="") this.props.actions.saveChangesEditMyAccount(this.props.store.editAccount.name, this.state.email);
+            if(this.state.email=="") this.props.actions.saveChangesEditMyAccount(this.state.name, this.props.store.editAccount.email);
             this.setState({email: '', name: ''});
         }
         
@@ -42,7 +42,7 @@ class EditUser extends React.Component {
             <div className='editUserContainer'>
                 <div className="headerEditUser">
                     <div className="tittleContainer">                
-                        <span className="title">Editar Datos para Usuario de Notificación</span>
+                        <span className="title">Editar Datos de Usuario</span>
                     </div>
                     <div className="icoContainer">
                         <span className="ico icon-cross" onClick={this.deactivatePopUp}></span>
@@ -50,15 +50,15 @@ class EditUser extends React.Component {
                 </div>
                 <div className="divInputs">
                     <span className="titleInput">Nombre: </span>
-                    <input type="text" className="name" defaultValue={this.props.store.editUser.name}  onChange={this.handleChange}></input>
+                    <input type="text" className="name" defaultValue={this.props.store.editAccount.name}  onChange={this.handleChange}></input>
                 </div>
                 <div className="divInputs">
                     <span className="titleInput">Email: </span>
-                    <input className="email" defaultValue={this.props.store.editUser.email} onChange={this.handleChange}></input>
+                    <input className="email" defaultValue={this.props.store.editAccount.email} onChange={this.handleChange}></input>
                 </div>
                 <div className="buttonC">
                     <div className="buttonSave">
-                        <span className="textButton" onClick={() => this.saveChanges()}>Guardar</span>
+                        <span className="textButton" onClick={() => this.saveChangesEditMyAccount()}>Guardar</span>
                     </div>
                 </div>
             </div>
@@ -67,10 +67,10 @@ class EditUser extends React.Component {
     render() {
         return(
             
-            this.props.store.editUser.active == true ? <div className="frontContainer"> {this.renderPopUp()} </div> : null
+            this.props.store.editAccount.active == true ? <div className="frontContainer"> {this.renderPopUp()} </div> : null
             
         );
     }
   }
-  export default EditUser;
+  export default EditMyAccount;
 

@@ -63,7 +63,7 @@ class App extends React.Component {
                             <Route path='/rango' component={ParameterRange} />
                             <Route path='/ajustes' component={Settings} />
                             <Route path='/notificaciones' render={(props) => <Notifications {...this.state} actions={actions}/>} />
-                            <Route path='/miCuenta' render={(props) => <Account {...this.state.store.userInfo} actions={actions}/>} />
+                            <Route path='/miCuenta' render={(props) => <Account {...this.state} actions={actions}/>} />
                             <Route render={function (){
                                 return <p> Not Found </p>
                             }} />
