@@ -8,7 +8,6 @@ class SensorTypes extends React.Component {
     }
     renderSensors() {
             //map 
-            console.log("remderSensors",this.props)
             var sensorTypesJs = this.props.store.sensorTypes.Administrador;
             if (sensorTypesJs == undefined)
             return null;
@@ -29,7 +28,6 @@ class SensorTypes extends React.Component {
     }
 
     render() {
-        console.log("render", this.props)
         return (
              <div className="buttonContainer">
                 <div className="medidas">

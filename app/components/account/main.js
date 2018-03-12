@@ -1,29 +1,22 @@
 import React from 'react';
 import SubHeader from '../general/subheader';
 import UserBox from '../account/userbox.js';
-import EditMyAccount from '../general/editMyAccount';
 
 
 class Account extends React.Component {
     constructor(props){
-       super(props);
-        this.activatePopUp =this.activatePopUp.bind(this);
+        super(props);
     }
     componentDidMount() {
         this.props.actions.getMyAccount();
-      }
-    activatePopUp(name, email){
-        this.props.actions.editMyAccountData(name,email);
     }
-
     render() {
-        console.log(this.props)
         return (
             <div className="account">
             <SubHeader titulo="Mi Cuenta"/>  
                 <div className="contentAccount"> 
                     <div className="contentUserBox">
-                        <UserBox/>
+                        {this.props.store.myAccount != null ? <UserBox {...this.props}/> : null}
                     </div>
                     <div className="contentButtons">   
                         <div className="buttonSalir">
@@ -36,7 +29,6 @@ class Account extends React.Component {
                         </div>
                     </div>
                 </div>
-                <EditMyAccount {...this.props}/>
             </div>
         );
     }
