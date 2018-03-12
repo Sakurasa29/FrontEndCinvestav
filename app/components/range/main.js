@@ -1,12 +1,27 @@
 import React from 'react';
 import SubHeader from '../general/subheader';
+import Slider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 class ParameterRange extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            value: [20, 40]
+        };
+        this.onSliderChange = this.onSliderChange.bind(this);
+    }
     componentDidMount(){
         this.props.actions.getParametersRange();
     }
     handleChangeNotification(){
 
+    }
+    onSliderChange(value){
+        console.log(value);
+        this.setState({
+            value,
+        });
     }
     renderTableofParameters(){
         var parameters = this.props.store.parameters;
@@ -27,8 +42,7 @@ class ParameterRange extends React.Component {
                                         <span className="textWrap" style={{background: item.color, border: item.color}}>{item.text}</span>
                                     </td>
                                     <td className="rangeWrap">
-                                        <input id="rangeBar" type="range" name="start" min="0" max="1000" step="1" value="0"></input>
-                                        <input id="rangeBar" type="range" name="end" min="0" max="1000" step="1" value="50"></input>
+                                        <Range allowCross={false} value={this.state.value} onChange={this.onSliderChange}  />
                                     </td>
                                     <td className="notificationButtons">
                                         <div className={item.notification === true ? "divCircle active" : "divCircle"}>
