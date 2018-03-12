@@ -17,7 +17,8 @@ let AppData = {
             active: false,
             name: "",
             email: ""
-        }
+        },
+        parameters: null
     },
     getUserInfo(){
         $.getJSON('/app/data/login.js', function(info) {
@@ -75,7 +76,16 @@ let AppData = {
                 AppStore.emitChange();
             }
         });
-    }
+    },
+    getParametersRange(){
+        $.getJSON('/app/data/parametersRange.js', function(info){
+            AppData.data.parameters = info.parameterRange;
+            console.log(info)
+            AppStore.emitChange();  
+        }).fail(function(error) {
+            console.error(error);
+        });
+    },
 }
 
 let AppStore = assign({}, EventEmitter.prototype, {
@@ -118,7 +128,10 @@ dispatcher.register((action) => {
         break;
     case actionTypes.SAVE_CHANGESEDITUSER:
         AppData.saveChangesEditUser(action);
-        break;
+        break; 
+    case actionTypes.GET_PARAMETERSRANGE:
+        AppData.getParametersRange(action);
+        break; 
     default:
 
 		// no op

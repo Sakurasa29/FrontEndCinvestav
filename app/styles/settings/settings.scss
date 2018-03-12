@@ -2,15 +2,16 @@
     .contentSettings{
         padding: 10px;
         .title{
-            background: #a7a7a7;
+            background: #e0e6e7;
+            color: #214f5d;
             padding: 5px;
             font-size: 14px;
         }
         .divConsumo{
             text-align: center;
             margin: 0 auto;
+            width: 60%;
             .infoDiv{
-                width: 80px;
                 border-radius: 10px 10px 0px 0px;
                 margin: 0 auto;
                 .ico{
@@ -20,14 +21,13 @@
                 }
             }
             .subTitle{
-                width: 80px;
                 margin: 0 auto;
                 color: #A7A7A7;
                 border-radius: 0px 0px 10px 10px;
                 border-bottom: 1px solid #a7a7a7; 
                 border-right: 1px solid #a7a7a7;
                 border-left: 1px solid #a7a7a7;
-                margin-bottom: 15px;               
+                margin-bottom: 15px;
             }
         }
         .smallTitle{
@@ -36,10 +36,10 @@
             border-bottom: 1px solid #a7a7a7;
             width: 100%;
             display: block;
+            padding-top: 5px;
             padding-bottom: 5px;
             text-align: center;
-            height: 25px;
-            line-height: 25px;
+            height: auto;
             margin-bottom: 15px;
         }
         .relationDiv{
@@ -55,7 +55,8 @@
                 .divConsumo{
                     color: white;
                     .infoDiv{
-                        background: #A7A7A7;
+                        background: #79949c;
+                        border: #79949c;
                     }
                 }
             }
@@ -67,19 +68,20 @@
                 .inputDiv{
                     margin: 0 auto;
                     text-align: center;
+                    width: 100%;
                     .inputTransf{
                         height: 30px;
                         width: 70%;
                         border-radius: 5px;
-                        color: #00c8f8;
+                        color: #00a4d3;
                         font-size: 16px;
                     }
                 }
                 .buttonChange{
-                    width: 40%;
-                    border: 1px solid orange;
+                    width: 70%;
+                    border: 1px solid #ffa834;
                     border-radius: 5px;
-                    background: orange;
+                    background: #ffa834;
                     color: white;
                     padding: 4px;
                     text-align: center;
@@ -104,8 +106,12 @@
                 width: 50%;
                 .divConsumo{
                     color: white;
+                    width: 90%;
+                    .subTitle{
+                        font-size: 14px;
+                    }
                     .infoDiv{
-                        background: orange;
+                        background: #ff8351;
                     }
                 }
             }
@@ -119,8 +125,8 @@
                     color: #a7a7a7;
                 }
                 .buttonReset{
-                    background: #00c8f8;
-                    border: 1px solid #00c8f8;
+                    background: #00a4d3;
+                    border: 1px solid #00a4d3;
                     width: 90%;
                     margin: 0 auto;
                     border-radius: 5px;
