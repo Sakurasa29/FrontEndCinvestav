@@ -80,14 +80,20 @@ let AppData = {
             }
         });
     },
-    getParametersRange(){
+    getParametersRange() {
+        //obtiene los valores del back, en este caso tu base de datos con los datos generales
+        //le agregue un valor al json, para que ahora se regrese de esa forma
         $.getJSON('/app/data/parametersRange.js', function(info){
             AppData.data.parameters = info.parameterRange;
-            console.log(info)
-            AppStore.emitChange();  
+            AppStore.emitChange(); 
         }).fail(function(error) {
             console.error(error);
         });
+    },
+    setParametersRange(action){
+        //Esta funcion se manda a llamar con el Guardar cambios del componente de rango de parametros
+        //en el action.parameters encontraras el nuevo objeto con los nuevos valores
+        console.log(action)
     },
 /***********************************************************************************/    
     getMyAccount(){
@@ -129,6 +135,9 @@ let AppStore = assign({}, EventEmitter.prototype, {
 AppStore = assign({}, AppStore, {
     getData: () => {
         return AppData.data;
+    },
+    getParametersRange: () => {
+        return AppData.data.parameters;
     }
 });
 
@@ -166,6 +175,9 @@ dispatcher.register((action) => {
         break; 
     case actionTypes.GET_PARAMETERSRANGE:
         AppData.getParametersRange(action);
+        break; 
+    case actionTypes.SET_PARAMETERSRANGE:
+        AppData.setParametersRange(action);
         break; 
     default:
 

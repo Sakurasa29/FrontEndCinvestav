@@ -13,7 +13,7 @@ class EditUser extends React.Component {
         this.onKey = this.onKey.bind(this);
     }
     handleChange(event) {
-        console.log(event.target.value)
+        console.log(event.target)
         if(event.target.className=="name")
             this.setState({name: event.target.value});
         else   
@@ -61,7 +61,7 @@ class EditUser extends React.Component {
                 </div>
                 <div className="divInputs">
                     <span className="titleInput">Nombre: </span>
-                    <input type="text" className="name" defaultValue={this.props.data.name}  onChange={this.handleChange}></input>
+                    <input type="text" className="name" defaultValue={this.props.data.name} valors="hola" onChange={this.handleChange}></input>
                 </div>
                 <div className="divInputs">
                     <span className="titleInput">Email: </span>

@@ -27,7 +27,7 @@ class App extends React.Component {
         this._onChange = this._onChange.bind(this);
     }
     componentDidMount() {
-        actions.getUserInfo();   
+        actions.getUserInfo();  
         AppStore.addChangeListener(this._onChange);
     }
     componentWillUnmount() {
