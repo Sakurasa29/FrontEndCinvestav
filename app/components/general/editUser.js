@@ -10,12 +10,19 @@ class EditUser extends React.Component {
         this.saveChanges = this.saveChanges.bind(this);
         this.saveChangesMyAccount = this.saveChangesMyAccount.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.onKey = this.onKey.bind(this);
     }
     handleChange(event) {
+        console.log(event.target)
         if(event.target.className=="name")
             this.setState({name: event.target.value});
         else   
             this.setState({email: event.target.value});
+    }
+    onKey(event){
+        if (event.keyCode === 32) {
+            console.log('You pressed the escape key!')
+        }
     }
     saveChanges(){
         if(this.state.name != "" && this.state.email != ""){
@@ -54,11 +61,11 @@ class EditUser extends React.Component {
                 </div>
                 <div className="divInputs">
                     <span className="titleInput">Nombre: </span>
-                    <input type="text" className="name" defaultValue={this.props.data.name}  onChange={this.handleChange}></input>
+                    <input type="text" className="name" defaultValue={this.props.data.name} valors="hola" onChange={this.handleChange}></input>
                 </div>
                 <div className="divInputs">
                     <span className="titleInput">Email: </span>
-                    <input className="email" defaultValue={this.props.data.email} onChange={this.handleChange}></input>
+                    <input className="email" defaultValue={this.props.data.email} onKeyUp={this.onKey} onChange={this.handleChange}></input>
                 </div>
                 <div className="buttonC">
                     <div className="buttonSave" onClick={this.props.from=="notifications" ? ()=>this.saveChanges() : ()=>this.saveChangesMyAccount()}>

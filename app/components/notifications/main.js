@@ -62,9 +62,7 @@ class Notifications extends React.Component {
                         </tbody>
                     </table>
             );
-
     }
-
     render() {
         return (
             <div className="notifications">

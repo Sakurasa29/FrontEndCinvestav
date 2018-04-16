@@ -29,7 +29,7 @@ module.exports = {
         rules: [
             { test: /\.(js)$/, use: 'babel-loader' },
             //{ test: /\.css$/, use: ['style-loader', 'css-loader'] },
-            { test: /\.scss$/,
+            { test: /\.s?css$/,
                 use: extractSass.extract({
                     use: [{
                         loader: "css-loader", options: {

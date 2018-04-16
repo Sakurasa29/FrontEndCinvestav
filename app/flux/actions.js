@@ -70,6 +70,12 @@ const Actions = {
         dispatcher.dispatch({
             type: actionTypes.GET_PARAMETERSRANGE
         });
+    }, 
+    setParametersRange(parameters) {
+        dispatcher.dispatch({
+            type: actionTypes.SET_PARAMETERSRANGE,
+            parameters
+        });
     }  
 };
 export default Actions;
