@@ -12,6 +12,8 @@ import TimeHeader from '../components/timeheader/main';
 import Footer from '../components/footer/main';
 import actions from '../flux/actions';
 import SubHeader from '../components/general/subheader';
+import history from '../history';
+
 
 
 
