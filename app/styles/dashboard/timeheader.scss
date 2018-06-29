@@ -1,8 +1,10 @@
 .timeheader{
-    width: 100%;
+    width: 80%;
     height: 52px;
     line-height: 45px;
     padding: 5px;
+    display: inline-block;
+    vertical-align: middle;
     .time{
         color: #79949c;
         background: #012530;
