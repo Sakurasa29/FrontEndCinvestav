@@ -13,7 +13,6 @@ class EditUser extends React.Component {
         this.onKey = this.onKey.bind(this);
     }
     handleChange(event) {
-        console.log(event.target)
         if(event.target.className=="name")
             this.setState({name: event.target.value});
         else   

@@ -6,6 +6,7 @@ import Settings from '../components/settings/main';
 import Notifications from '../components/notifications/main';
 import Account from '../components/account/main';
 import Historic from '../components/historic/main';
+import Login from '../components/login/main';
 import ParameterRange from '../components/range/main';
 import Header from '../components/header/main';
 import TimeHeader from '../components/timeheader/main';
@@ -48,29 +49,37 @@ class App extends React.Component {
     }
     render() {
         return (
-            <Router>
-                <div id="generalDiv">
-                    <Header />
-                    <div className="barMenu">
-                        <TimeHeader />
-                        {this.state.store.menuOptions != null ? this.renderMenu() : null}
-                    </div>
-                    <div className="views">
-                        <Switch>
-                            <Route path='/tablero' render={(props) => <Tablero {...this.state} actions={actions}/>} />
-                            <Route path='/historial' component={Historic} />
-                            <Route path='/rango' render={(props) => <ParameterRange {...this.state} actions={actions}/>} />
-                            <Route path='/ajustes' component={Settings} />
-                            <Route path='/notificaciones' render={(props) => <Notifications {...this.state} actions={actions}/>} />
-                            <Route path='/miCuenta' render={(props) => <Account {...this.state} actions={actions}/>} />
-                            <Route render={function (){
-                                return <p> Not Found </p>
-                            }} />
-                        </Switch>
-                    </div>
-                    <Footer />
-                </div>
-            </Router>
+            <div>
+                {
+                    this.state.store.login === false ? 
+                        <Login {...this.state} actions={actions}/>
+                    :
+                    <Router>
+                        <div id="generalDiv">
+                            <Header />
+                            <div className="barMenu">
+                                <TimeHeader />
+                                {this.state.store.menuOptions != null ? this.renderMenu() : null}
+                            </div>
+                            <div className="views">
+                                <Switch>
+                                    <Route path='/login' render={(props) => <Login {...this.state} actions={actions}/>} />
+                                    <Route path='/tablero' render={(props) => <Tablero {...this.state} actions={actions}/>} />
+                                    <Route path='/historial' component={Historic} />
+                                    <Route path='/rango' render={(props) => <ParameterRange {...this.state} actions={actions}/>} />
+                                    <Route path='/ajustes' component={Settings} />
+                                    <Route path='/notificaciones' render={(props) => <Notifications {...this.state} actions={actions}/>} />
+                                    <Route path='/miCuenta' render={(props) => <Account {...this.state} actions={actions}/>} />
+                                    <Route render={function (){
+                                        return <p> Not Found </p>
+                                    }} />
+                                </Switch>
+                            </div>
+                            <Footer />
+                        </div>
+                    </Router>
+                }
+            </div>
         );
     }
 }
