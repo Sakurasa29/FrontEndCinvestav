@@ -52,7 +52,10 @@
     background: #d6d6d6;
 }
 .views{ 
-    width: 80%;
+    width: 95%;
     display: inline-block;
     vertical-align: middle;
+    &.active{
+        width: 80%;
+    }
 }

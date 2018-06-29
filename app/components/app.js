@@ -23,9 +23,11 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            store: getAppState()
+            store: getAppState(),
+            active: false
         }
         this._onChange = this._onChange.bind(this);
+        this.openMenu = this.openMenu.bind(this);
     }
     componentDidMount() {
         actions.getUserInfo();  
@@ -37,13 +39,26 @@ class App extends React.Component {
     _onChange() {
        this.setState({store: getAppState()});
     }
+    openMenu(){
+        this.setState({
+            active: !this.state.active
+        })
+    }
     renderMenu(){
         return this.state.store.menuOptions.map((opt, index) => (
             <Link className="linkStyle" key={index} to={opt.path}>
-              <div className='menuOption' key={index}>
-                  <span className={"ico "+opt.ico}></span>
-                  <span className="txtMenu"> {opt.text}</span>
-              </div>
+            {
+                this.state.active === false ?
+                    <div className={this.state.active === true ? 'menuOption active' : 'menuOption'} key={index}>
+                        <span className={"ico "+opt.ico}></span>
+                    </div>
+                :
+                    <div className={this.state.active === true ? 'menuOption active' : 'menuOption'} key={index}>
+                        <span className={"ico "+opt.ico}></span>
+                        <span className="txtMenu"> {opt.text}</span>
+                    </div>
+            }
+              
             </Link>
         ));
     }
@@ -57,11 +72,21 @@ class App extends React.Component {
                     <Router>
                         <div id="generalDiv">
                             <Header />
-                            <div className="barMenu">
-                                <TimeHeader />
+                            <div className={this.state.active ? "barMenu active" : "barMenu"}>
+                                {
+                                    this.state.active === true ? 
+                                    <div>
+                                        <TimeHeader /> 
+                                        <span className="ico icon-menu" onClick={this.openMenu}></span>
+                                    </div>
+                                : 
+                                    <div className="menuIcon" onClick={this.openMenu}>
+                                        <span className="icon-menu"></span>
+                                    </div>
+                                }
                                 {this.state.store.menuOptions != null ? this.renderMenu() : null}
                             </div>
-                            <div className="views">
+                            <div className={this.state.active === true ? "views active" : "views"}>
                                 <Switch>
                                     <Route path='/login' render={(props) => <Login {...this.state} actions={actions}/>} />
                                     <Route path='/tablero' render={(props) => <Tablero {...this.state} actions={actions}/>} />

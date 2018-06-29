@@ -8,7 +8,7 @@ const CHANGE_EVENT = 'change';
 
 let AppData = {
     data:{
-        login: false,
+        login: true,
         userInfo: null,
         menuOptions: null,
         sensorTypes: null,
