@@ -7,6 +7,11 @@ const Actions = {
             type: actionTypes.GET_USERINFO
         });
     },
+    getMedidoresInfo() {
+        dispatcher.dispatch({
+            type: actionTypes.GET_MEDIDORESINFO
+        });
+    },
     getMenuTypes() {
         dispatcher.dispatch({
             type: actionTypes.GET_MENUTYPES

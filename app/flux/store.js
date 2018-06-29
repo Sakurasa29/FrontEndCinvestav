@@ -8,6 +8,7 @@ const CHANGE_EVENT = 'change';
 
 let AppData = {
     data:{
+        login: false,
         userInfo: null,
         menuOptions: null,
         sensorTypes: null,
@@ -24,7 +25,8 @@ let AppData = {
             name: "",
             email: ""
         },
-        parameters: null
+        parameters: null,
+        medidores: null
     },
     getUserInfo(){
         $.getJSON('/app/data/login.js', function(info) {
@@ -35,6 +37,14 @@ let AppData = {
             }).fail(function(error) {
                 console.error(error);
             });
+        }).fail(function(error) {
+            console.error(error);
+        });
+    },
+    getMedidoresInfo(){
+        $.getJSON('/app/data/medidores.json', function(info) {
+            AppData.data.medidores = info.medidores;
+            AppStore.emitChange();
         }).fail(function(error) {
             console.error(error);
         });
@@ -145,7 +155,10 @@ dispatcher.register((action) => {
     switch (action.type) {
     case actionTypes.GET_USERINFO:
         AppData.getUserInfo();
-        break;
+        break; 
+    case actionTypes.GET_MEDIDORESINFO:
+        AppData.getMedidoresInfo();
+        break; 
     case actionTypes.GET_MENUTYPES:
         AppData.getMenuTypes();
         break;

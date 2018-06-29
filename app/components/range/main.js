@@ -1,5 +1,6 @@
 import React from 'react';
 import SubHeader from '../general/subheader';
+import SelectMedidor from '../general/selectMedidor';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import AppStore from '../../flux/store';
 import 'rc-slider/assets/index.css';
@@ -119,6 +120,7 @@ class ParameterRange extends React.Component {
         return (
             <div className="rangeContainer">            
                 <SubHeader titulo="Rango de parámetros"/>
+                <SelectMedidor {...this.props} />
                 {this.state.parameters != null ? this.renderTableofParameters() : null}
                 <div className="buttonChangeR" onClick={this.sendChanges}>
                     Guardar Cambios
