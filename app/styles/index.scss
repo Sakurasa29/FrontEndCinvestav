@@ -8,10 +8,21 @@
 @import 'dashboard/general.scss';
 
 @import 'tablero/tablero.scss';
+@import 'tablero/sensorTypes.scss';
 @import 'account/account.scss';
 @import 'account/userbox.scss';
 
 @import 'settings/settings.scss';
+
+@import 'login/login.scss';
+
+@import 'notifications/notifications.scss';
+
+@import 'general/editUser.scss';
+@import 'general/selectmedidor.scss';
+
+@import 'range/range.scss';
+
 //fuentes
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -41,7 +52,10 @@
     background: #d6d6d6;
 }
 .views{ 
-    width: 75%;
+    width: 95%;
     display: inline-block;
     vertical-align: middle;
+    &.active{
+        width: 80%;
+    }
 }
