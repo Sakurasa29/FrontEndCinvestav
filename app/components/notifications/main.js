@@ -1,13 +1,19 @@
 import React from 'react';
 import SubHeader from '../general/subheader';
 import EditUser from '../general/editUser';
+import PopUp from '../general/popUp';
 
 class Notifications extends React.Component {
     constructor(props){
         super(props);
         this.changeValue = this.changeValue.bind(this);
         this.activatePopUp =this.activatePopUp.bind(this);
+        this.activePopUp =this.activePopUp.bind(this);
+        this.acceptChanges =this.acceptChanges.bind(this);
         this.deactivatePopUp =this.deactivatePopUp.bind(this);
+        this.state = {
+            popUpActive: false //este es el que activa y desactiva el popUp
+        };  
     }
     componentDidMount() {
         this.props.actions.getNotifications();
@@ -22,6 +28,17 @@ class Notifications extends React.Component {
         this.setState({email: '', name: ''});
         this.props.actions.editNotificationData(false,"","","");
     }
+    activePopUp(){
+        /* Prender y apagar el popUp */
+        console.log("activar")
+        this.setState({
+            popUpActive: !this.state.popUpActive
+        });
+    }
+    acceptChanges(){
+        /* mandar a llamar la función que quieres que realice cuando se acepta el cambio en el popUpp*/
+        console.log("aceptar")
+    }
     renderNotifications(){
             var notificationsJs = this.props.store.notification;
             return (
@@ -35,7 +52,7 @@ class Notifications extends React.Component {
                             </tr>
                         {
                             notificationsJs.map((item, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <td className="nombreWrap">
                                         <div className="iconContact">
                                             <span className="ico icon-contact"></span>
@@ -77,11 +94,17 @@ class Notifications extends React.Component {
                         <span className="ico icon-add-user-button"></span>
                         <span>Añadir</span>
                     </div>
-                    <div className="button2"> 
+                    <div className="button2" onClick={this.activePopUp}> 
                         <span>Guardar</span>
                     </div>
                 </div>
                 <EditUser {...this.props} data={this.props.store.editUser} from="notifications" deactivatePopUp={() => this.deactivatePopUp}/>
+                { //Así se manda a llamar el popUp en los demás de confirmación
+                    this.state.popUpActive === true ? 
+                        <PopUp {...this.props} cancel={this.activePopUp} accept={this.acceptChanges}/>
+                    :
+                        null
+                }
             </div>
         );
     }
