@@ -1,0 +1,46 @@
+.backContainer{
+    width: auto;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    top:0; 
+    left:0;
+    z-index: 1;
+    .popUpContainer{
+        border-radius: 10px;
+        background: white;
+        color: #214f5d;
+        width: 40%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20%;
+        padding: 20px;
+        .msg{
+            display: block;
+        }
+        .buttonsContainer{
+            display: block;
+            margin-top: 15px;
+            .button{
+                display: inline-block;
+                vertical-align: middle;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 10px;
+                margin-right: 20px;
+                box-shadow: 1px 3px 2px black;
+                color: white;
+                width: 35%;
+                cursor: pointer;
+                &.accept{
+                    background: #279e8c;
+                }
+                &.cancel{
+                    background: #a7a7a7;
+                }
+            }
+        }
+    }
+}
